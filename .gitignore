@@ -1,0 +1,6 @@
+.idea/
+.venv
+allure-report/
+allure-results/
+combined_results/
+device_outputs/
