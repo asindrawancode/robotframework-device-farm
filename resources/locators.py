@@ -1,5 +1,3 @@
-# resources/locators.py
-
 LOCATORS = {
     "OnboardingPage": {
         "Android": {
@@ -33,6 +31,8 @@ LOCATORS = {
             "notificationIcon": "(//android.widget.ImageView[@resource-id='com.telkomsel.telkomselcm:id/iv_component_animation'])[2]",
             "popUpBanner": '(//android.widget.RelativeLayout[ends-with(@resource-id, ":id/com.telkomsel.telkomselcm:id/buttonContainer")])/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View',
             "topUpMenuSwitcher": '(//android.view.ViewGroup[ends-with(@resource-id, ":id/clSwitcher")])',
+            "homeSpecialngebut": '//android.widget.TextView[contains(@text, "Internetan ngebut dimanapun")]',
+            "homeSearch": '//android.widget.TextView[ends-with(@resource-id, ":id/tv_search")]',
             "homeMenuMain": '//android.widget.FrameLayout[ends-with(@content-desc, "Beranda")]',
             "homeMenuBuyPacket": '//android.widget.FrameLayout[ends-with(@content-desc, "Beli Paket")]',
             "homeMenuMall": '//android.widget.ImageView[ends-with(@resource-id, ":id/ic_quick_menu")]',

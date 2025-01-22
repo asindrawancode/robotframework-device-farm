@@ -1,6 +1,6 @@
 *** Settings ***
 Library           AppiumLibrary
-Variables         ../variables.py
+Resource         ../variables.robot
 Variables         ../locators.py
 
 *** Variables ***
@@ -16,7 +16,7 @@ Get Locator
 Allow Notification Pop-up
     ${locatorTitle}=    Get Locator    HomePage    allowSendNotification
     ${locatorBtn}=    Get Locator    HomePage    btnAllowSendNotification
-    ${is_visible}    Run Keyword And Return Status    Wait Until Element Is Visible    ${locatorTitle}  2
+    ${is_visible}    Run Keyword And Return Status    Wait Until Element Is Visible    ${locatorTitle}  5
     Run Keyword If    ${is_visible}    Click Element    ${locatorBtn}
 
 Scroll Until Text Is Found

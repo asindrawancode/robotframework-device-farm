@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Define an apk_url
+app_path_android="/Users/agussriindrawansigit/IdeaProjects/my-telkomsel-automatic-testing/apps/MyTelkomsel 8.6.2 fixing.apk"
+
 # Define an remote_url for each device or make it same if connect to the same url
 remote_urls=(
   "http://0.0.0.0:4723/wd/hub"
@@ -16,9 +19,9 @@ udids=(
 
 # Define the corresponding test files for each device
 test_files=(
-  "tests/test_guest.robot"
-  "tests/test_landing.robot"
-  "tests/test_loginUser.robot"
+  "tests/GuestMode/"
+  "tests/Authentication/"
+  "tests/Onboarding/"
 )
 
 # Directory to store individual outputs
@@ -76,8 +79,8 @@ for i in "${!udids[@]}"; do
   mkdir -p "$output_dir"
 
   # Construct and execute the robot command for each device
-  echo udid +" ============= "+ $test_file +" ============= "+ $remote_url
-  robot --listener allure_robotframework:"$allure_results_dir" --outputdir "$output_dir" -v PLATFORM_NAME:Android -v UDID:"$udid" -v REMOTE_URL:"$remote_url" "$test_file" &
+  echo $udid +" ============= "+ $test_file +" ============= "+ $remote_url
+  robot --listener allure_robotframework:"$allure_results_dir" --outputdir "$output_dir" -v APP_PATH_ANDROID:"$app_path_android" -v PLATFORM_NAME:Android -v UDID:"$udid" -v REMOTE_URL:"$remote_url" "$test_file" &
 done
 
 # Wait for all background jobs to finish

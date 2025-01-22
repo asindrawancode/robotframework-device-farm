@@ -1,5 +1,6 @@
 .idea/
 .venv
+.pyc
 allure-report/
 allure-results/
 combined_results/

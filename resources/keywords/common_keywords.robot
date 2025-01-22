@@ -1,6 +1,6 @@
 *** Settings ***
 Library           AppiumLibrary
-Variables         ../variables.py
+Resource         ../variables.robot
 
 *** Keywords ***
 Open TelkomselApp

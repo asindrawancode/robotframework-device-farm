@@ -1,16 +1,19 @@
 *** Settings ***
 Library           AppiumLibrary
 Resource          common_page.robot
-Variables         ../../resources/variables.py
+Resource         ../../resources/variables.robot
 Variables         ../../resources/locators.py
 
 *** Keywords ***
-Verify Onboarding Title
-    ${locator}=    Get Locator    OnboardingPage    onboardingTitle1
+Navigate to Next Screen
+    [Documentation]    Click the "Next" button to proceed in onboarding.
+    ${locator}=    Get Locator    OnboardingPage    buttonNext
     Wait Until Element Is Visible    ${locator}    timeout=10s
-    Page Should Contain Element    ${locator}
-    Capture Page Screenshot
+    Click Element     ${locator}
 
-Click Skip Button
+Skip Onboarding
+    [Documentation]    Click the "Skip" button to bypass onboarding.
     ${locator}=    Get Locator    OnboardingPage    buttonSkip
     Click Element     ${locator}
+    Allow Notification Pop-up
+    Wait Until Page Contains    Guest

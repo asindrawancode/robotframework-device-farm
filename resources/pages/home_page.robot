@@ -1,7 +1,6 @@
 *** Settings ***
 Library           AppiumLibrary
 Resource          common_page.robot
-Variables         ../../resources/variables.py
 Variables         ../../resources/locators.py
 
 *** Keywords ***
@@ -17,7 +16,6 @@ Verify Notification Icon
     ${locator}=    Get Locator    HomePage    notificationIcon
     Wait Until Element Is Visible    xpath=${locator}    timeout=10s
     Page Should Contain Element    xpath=${locator}
-
 
 Verify Menu Main
     ${locator}=    Get Locator    HomePage    homeMenuMain
@@ -50,6 +48,12 @@ Verify Home Lifestyle
 
 
 # Navigate
+Navigate to Special Sim Card
+    ${locator}=    Get Locator    HomePage    homeSpecialngebut
+    Wait Until Element Is Visible    xpath=${locator}    timeout=10s
+    Click Element    xpath=${locator}
+
+
 Navigate to Menu Main
     ${locator}=    Get Locator    HomePage    homeMenuMain
     Wait Until Element Is Visible    xpath=${locator}    timeout=10s
@@ -68,12 +72,10 @@ Navigate to Verify Home Mall
     Page Should Contain Element    xpath=${locator}
     Click Element    xpath=${locator}
 
-
 Navigate to Home Reward
     ${locator}=    Get Locator    HomePage    homeMenuReward
     Wait Until Element Is Visible    xpath=${locator}    timeout=10s
     Click Element    xpath=${locator}
-
 
 Navigate to Home Lifestyle
     ${locator}=    Get Locator    HomePage    homeMenuLifestyle

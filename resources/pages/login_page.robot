@@ -1,12 +1,7 @@
 *** Settings ***
 Library           AppiumLibrary
 Resource          common_page.robot
-Variables         ../../resources/variables.py
 Variables         ../../resources/locators.py
-
-
-*** Variables ***
-${NUMBER_INDIHOME}  085211435164
 
 
 *** Keywords ***
@@ -51,6 +46,8 @@ Navigate Login With Indihome Number
     Click Element    xpath=${locator}
 
 Enter Indihome Number
+    [Arguments]     ${number}
     ${locator}=    Get Locator    LoginPage    editTextPhoneNumber
     Wait Until Element Is Visible    xpath=${locator}    timeout=10s
-    Input Text    xpath=${locator}  ${NUMBER_INDIHOME}
+    Clear Text    ${locator}
+    Input Text    xpath=${locator}  ${number}
